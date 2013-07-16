@@ -91,7 +91,7 @@ alias ls='ls --color=auto'
 export GREP_OPTIONS='--color=auto'
 
 # git prompt status
-source ~/.git-prompt.sh
+source /usr/share/git/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_STATUS='$(__git_ps1 "(%s)")'
 PS1="\n${BIWhite}\u@\H ${BIBlue}\w${BYellow} ${GIT_STATUS} ${Color_Off}\n\$ "
