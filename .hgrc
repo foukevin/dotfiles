@@ -1,0 +1,10 @@
+[ui]
+ssh = ssh -C
+username = foukevin <kevin.delbrayelle@gmail.com>
+verbose = True
+editor= nano
+
+[extensions]
+hgext.bookmarks =
+hggit =
+hgk=
