@@ -76,8 +76,8 @@ On_ICyan='\[\e[0;106m\]'    # Cyan
 On_IWhite='\[\e[0;107m\]'   # White
 
 # Bash completion
-if [ -f /etc/bash_completion ]; then
-. /etc/bash_completion
+if [ -f /usr/share/bash_completion ]; then
+. /usr/share/bash_completion
 fi
 
 # Path
@@ -91,7 +91,15 @@ alias ls='ls --color=auto'
 export GREP_OPTIONS='--color=auto'
 
 # git prompt status
-source /usr/share/git/git-prompt.sh
+if [ -f /usr/share/git/git-prompt.sh ]; then
+. /usr/share/git/git-prompt.sh
+fi
+
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_STATUS='$(__git_ps1 "(%s)")'
 PS1="\n${BIWhite}\u@\H ${BIBlue}\w${BYellow} ${GIT_STATUS} ${Color_Off}\n\$ "
+
+# git bash completion
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
+. /usr/share/git/completion/git-completion.bash
+fi
