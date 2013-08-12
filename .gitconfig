@@ -11,9 +11,10 @@
         lgc = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
         lgd = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
         lg = !"git lgc"
-	lgr = log --all --format=format:'- %s %d' --abbrev-commit --reverse
-	lgr7d = !"git lgr" --since=-7days
-	lgr1m = !"git lgr" --since=-1months
+	    lgr = log --all --format=format:'- %s %d' --abbrev-commit --reverse
+	    lgr7d = !"git lgr" --since=-7days
+	    lgr1m = !"git lgr" --since=-1months
+        ll = log -1 --pretty=format:'%C(yellow)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)'
         st = status -uno
 [push]
         default = simple
