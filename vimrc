@@ -1,11 +1,16 @@
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
+set nocompatible
+
+" Some Linux distributions set filetype in /etc/vimrc.
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+set runtimepath+=/usr/share/go/misc/vim
+filetype plugin indent on " Enable filetype plugins
+syntax on
 
 " Enable syntax highlighting
-syntax enable
-highlight Comment cterm=italic
 colorscheme darkblue
+highlight Comment cterm=italic
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -24,6 +29,19 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Remove menu bar, toolbar and scroll bars
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=l  "remove left-hand scroll bar
+
+" Smart Home
+noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
+noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
+vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
+imap <Home> <C-o><Home>
+imap <End> <C-o><End>
 
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -45,4 +63,3 @@ endif
 " Write and load sessions
 map <F2> :mksession! ~/vim_session <cr>
 map <F3> :source ~/vim_session <cr>
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0) <cr>
