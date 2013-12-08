@@ -33,8 +33,10 @@ set expandtab
 " Remove menu bar, toolbar and scroll bars
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=l  "remove left-hand scroll bar
+set guioptions-=r "remove right-hand scroll bar
+set guioptions-=R "remove right-hand scroll bar
+set guioptions-=l "remove left-hand scroll bar
+set guioptions-=L "remove left-hand scroll bar
 
 " Smart Home
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
