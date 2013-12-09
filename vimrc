@@ -30,14 +30,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Remove menu bar, toolbar and scroll bars
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r "remove right-hand scroll bar
-set guioptions-=R "remove right-hand scroll bar
-set guioptions-=l "remove left-hand scroll bar
-set guioptions-=L "remove left-hand scroll bar
-
 " Smart Home
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
 noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
@@ -51,13 +43,16 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Set window size and font
 set lines=120 columns=140
 if has("gui_running")
-  " set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  " set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=m "remove menu bar
+  set guioptions-=T "remove toolbar
+  set guioptions-=r "remove right-hand scroll bar
+  set guioptions-=R "remove right-hand scroll bar
+  set guioptions-=l "remove left-hand scroll bar
+  set guioptions-=L "remove left-hand scroll bar
   if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ 8
   elseif has("gui_win32")
-    set guifont=DejaVu\ Sans\ Mono:h11
+    set guifont=DejaVu\ Sans\ Mono:h10
   endif
 endif
 
