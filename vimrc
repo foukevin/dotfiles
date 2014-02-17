@@ -49,6 +49,7 @@ if has("gui_running")
   set guioptions-=R "remove right-hand scroll bar
   set guioptions-=l "remove left-hand scroll bar
   set guioptions-=L "remove left-hand scroll bar
+  set linespace=3
   if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ 8
   elseif has("gui_win32")
