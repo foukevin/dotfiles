@@ -9,7 +9,7 @@ filetype plugin indent on " Enable filetype plugins
 syntax on
 
 " Enable syntax highlighting
-colorscheme darkblue
+colorscheme github
 highlight Comment cterm=italic
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -25,10 +25,10 @@ set noswapfile
 set hidden
 
 " Indentation
+" set expandtab
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set shiftwidth=8
+set tabstop=8
 
 " Smart Home
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
@@ -51,7 +51,7 @@ if has("gui_running")
   set guioptions-=L "remove left-hand scroll bar
   set linespace=3
   if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ 8
+    set guifont=DejaVu\ Sans\ Mono\ 10
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
   endif
