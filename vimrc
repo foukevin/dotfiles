@@ -41,7 +41,6 @@ imap <End> <C-o><End>
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Set window size and font
-set lines=120 columns=140
 if has("gui_running")
   set guioptions-=m "remove menu bar
   set guioptions-=T "remove toolbar
@@ -56,6 +55,10 @@ if has("gui_running")
     set guifont=DejaVu\ Sans\ Mono:h10
   endif
 endif
+
+set lines=999 columns=9999
+set colorcolumn=80
+set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
 
 " Key mapping
 " Write and load sessions
