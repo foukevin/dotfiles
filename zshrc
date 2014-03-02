@@ -35,3 +35,26 @@ prompt_custom_setup () {
 }
 
 prompt_custom_setup
+
+# Make home, insert, delete and end work on PCs basically# like in doskey. This
+# may or may not work for you... the \e is the ESC character. To set this up
+# for your favourite system, type cat > rubbish, press the keys of interest,
+# then enter here what you see. You should replace ^[ (escape) with \e.
+
+case $TERM in
+    *xterm*|rxvt|(u|dt|k|E)term)
+    bindkey "\e[1~" beginning-of-line
+    bindkey "\e[3~" delete-char
+    bindkey "\e[4~" end-of-line
+    bindkey "\177" backward-delete-char
+    bindkey "\e[2~" overwrite-mode
+
+    bindkey "\e[7~" beginning-of-line
+    bindkey "\e[H" beginning-of-line
+    bindkey "\eOH" beginning-of-line
+    #bindkey "\e[2~" transpose-words
+    bindkey "\e[8~" end-of-line
+    bindkey "\e[F" end-of-line
+    bindkey "\eOF" end-of-line
+    ;;
+esac
