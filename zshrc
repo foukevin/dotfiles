@@ -8,6 +8,7 @@ compinit
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
+setopt HIST_IGNORE_DUPS
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -56,5 +57,8 @@ case $TERM in
     bindkey "\e[8~" end-of-line
     bindkey "\e[F" end-of-line
     bindkey "\eOF" end-of-line
+
+    bindkey "\e[A" history-beginning-search-backward
+    bindkey "\e[B" history-beginning-search-forward
     ;;
 esac
