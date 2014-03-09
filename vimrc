@@ -38,7 +38,13 @@ if has("gui_running")
   set guioptions-=l "remove left-hand scroll bar
   set guioptions-=L "remove left-hand scroll bar
   if has("gui_gtk2")
+    function! ToggleFullScreen()
+      call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
+      redraw
+    endfunction
     set guifont=DejaVu\ Sans\ Mono\ 10
+    nnoremap <M-f> :call ToggleFullScreen()<CR>
+    inoremap <M-f> <C-\><C-O>:call ToggleFullScreen()<CR>
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
   endif
