@@ -1,42 +1,83 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Drop Vi compatibility
 set nocompatible
-
-" Some Linux distributions set filetype in /etc/vimrc.
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
+" Clear filetype flags before changing runtimepath to force Vim to reload them
 filetype off
-filetype plugin indent off
-set runtimepath+=/usr/share/go/misc/vim
-filetype plugin indent on " Enable filetype plugins
+"set runtimepath+=
+" Re-enable filetype plugins
+filetype plugin indent on
+" Name of the shell to use for ! and :! commands
+set shell=zsh
+" Command-lines remembered in the history table
+set history=400
 
-" Set utf8 as standard encoding and en_US as the standard language
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files and backups
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets the character encoding used inside Vim
 set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-" Turn backup off, allow switching between buffers without having to save them
+" Set the preferrred end-of-line (<EOL>) formats
+set fileformats=unix,dos,mac" Turn backup off
+" Do not make a backup before overwriting a file
 set nobackup
-set nowb
+set nowritebackup
+" Do not use a swapfile for the buffer
 set noswapfile
+" Allow switching between buffers without having to save them
 set hidden
+" Automatically read file that have been changed outside of Vim again
+set autoread
+" Remove trailing spaces on save
+autocmd BufWritePre * :%s/\s\+$//e
 
-" Indentation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sounds
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable sounds
+set noerrorbells
+set novisualbell
+"set t_vb=
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation and edit
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set expandtab
+" Copy indent from current line when starting a new line
+set autoindent
+" Do smart autoindenting when starting a new line
 set smartindent
 set shiftwidth=8
 set tabstop=8
+" Working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode
+set backspace=eol,start,indent
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search and matches
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ignore case when searching
+set ignorecase
+set incsearch
+" Highlight all matches of previous search pattern
+set nohlsearch
+" Briefly jump to the matching bracket when a new one is inserted
+set showmatch
+set matchtime=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors and fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax on
-colorscheme github
-
-" Set window size and font
+syntax enable
+" GUI settings
 if has("gui_running")
-  set guioptions-=m "remove menu bar
-  set guioptions-=T "remove toolbar
-  set guioptions-=r "remove right-hand scroll bar
-  set guioptions-=R "remove right-hand scroll bar
-  set guioptions-=l "remove left-hand scroll bar
-  set guioptions-=L "remove left-hand scroll bar
+  set guioptions-=m " remove menu bar
+  set guioptions-=T " remove toolbar
+  set guioptions-=r " remove right-hand scroll bar
+  set guioptions-=R " remove right-hand scroll bar
+  set guioptions-=l " remove left-hand scroll bar
+  set guioptions-=L " remove left-hand scroll bar
   if has("gui_gtk2")
     function! ToggleFullScreen()
       call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
@@ -47,32 +88,40 @@ if has("gui_running")
     inoremap <M-f> <C-\><C-O>:call ToggleFullScreen()<CR>
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
+  elseif has("gui_macvim")
+    set guifont=Inconsolata:h18
   endif
   set linespace=6
+  colorscheme github
   highlight Comment gui=italic
 endif
 
-" Set line number and 80's color marker
+" Set line number and column 80 marker
 set number
 set numberwidth=8
 set colorcolumn=80
-set columns=88
-
-" Set status
-set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
+" set columns=88
+" Minimal number of screen lines to keep above and below the cursor
+set scrolloff=4
+" Determine contents of the status line
+" set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
 set laststatus=2
+" Show the line and column number of the cursor position
+set ruler
+" Enhance command-line completion
+set wildmenu
+" Do not redraw while executing macros
+set lazyredraw
 
-" Key mapping
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Write and load sessions
 map <F2> :mksession! ~/vim_session <cr>
 map <F3> :source ~/vim_session <cr>
-
-" Smart Home
+" Smart Home/End
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
 noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
 vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
-
-" Remove trailing spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
