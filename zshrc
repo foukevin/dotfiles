@@ -1,3 +1,6 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/kdelbrayelle/.zshrc'
 
@@ -14,12 +17,25 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # color output
-alias ls='ls --color=auto'
+case $(uname -s) in
+  Linux)
+    alias ls='ls --color=auto'
+    ;;
+  Darwin|FreeBSD)
+    export CLICOLOR=1
+    # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+    export LSCOLORS=ExFxCxDxBxegedabagacad
+    alias ls="ls -G"
+    ;;
+esac
+
 export GREP_OPTIONS='--color=auto'
 
 # git prompt status
 if [ -f /usr/share/git/git-prompt.sh ]; then
 . /usr/share/git/git-prompt.sh
+elif [ -f /opt/local/share/git-core/git-prompt.sh ]; then
+. /opt/local/share/git-core/git-prompt.sh
 fi
 
 prompt_custom_setup () {
@@ -62,3 +78,7 @@ case $TERM in
     bindkey "\e[B" history-beginning-search-forward
     ;;
 esac
+
+if [ -f ~/.profile ]; then
+. ~/.profile
+fi
