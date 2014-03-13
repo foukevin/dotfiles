@@ -2,3 +2,5 @@
 *.bak
 *.old
 *~
+.lock-waf*
+.waf*

@@ -22,3 +22,6 @@
 [merge]
         tool = meld
         conflictstyle = diff3
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
