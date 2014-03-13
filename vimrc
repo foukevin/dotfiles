@@ -14,7 +14,7 @@ set shell=zsh
 set history=400
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files and backups
+" Files, backups and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets the character encoding used inside Vim
 set encoding=utf8
@@ -31,6 +31,9 @@ set hidden
 set autoread
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufEnter * :syntax sync fromstart
+" Behavior when switching between buffers
+set switchbuf=usetab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sounds
@@ -63,6 +66,7 @@ set incsearch
 set nohlsearch
 " Briefly jump to the matching bracket when a new one is inserted
 set showmatch
+" Tenths of a second to show the matching paren
 set matchtime=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -89,7 +93,7 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
   elseif has("gui_macvim")
-    set guifont=Inconsolata:h18
+    set guifont=DejaVu\ Sans\ Mono:h15
   endif
   set linespace=6
   colorscheme github
@@ -105,6 +109,7 @@ set colorcolumn=80
 set scrolloff=4
 " Determine contents of the status line
 " set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
+" Last window status line option (0:never, 1:if two windows, 2:always)
 set laststatus=2
 " Show the line and column number of the cursor position
 set ruler
@@ -112,6 +117,10 @@ set ruler
 set wildmenu
 " Do not redraw while executing macros
 set lazyredraw
+" Number of screen lines to use for the command-line
+set cmdheight=2
+" Specify when the line with tab page labels will be displayed
+set showtabline=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
