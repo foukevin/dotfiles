@@ -34,14 +34,22 @@ autocmd BufWritePre * :%s/\s\+$//e
 "autocmd BufEnter * :syntax sync fromstart
 " Behavior when switching between buffers
 set switchbuf=usetab
+" Will change the current working directory whenever you open a file, switch
+" buffers, delete a buffer or open/close a window
+if exists("+autochdir")
+  set autochdir
+else
+  autocmd BufEnter * lcd %:p:h
+endif
+" Strings to use in 'list' mode
+set listchars=tab:▸\ ,trail:܀,eol:¬,extends:>,precedes:<
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sounds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable sounds
-set noerrorbells
-set novisualbell
-"set t_vb=
+set noerrorbells novisualbell
+autocmd VimEnter * set vb t_vb=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and edit
@@ -82,6 +90,7 @@ if has("gui_running")
   set guioptions-=R " remove right-hand scroll bar
   set guioptions-=l " remove left-hand scroll bar
   set guioptions-=L " remove left-hand scroll bar
+  set guioptions=aiA
   if has("gui_gtk2")
     function! ToggleFullScreen()
       call system("wmctrl -i -r ".v:windowid." -b toggle,fullscreen")
@@ -113,14 +122,22 @@ set scrolloff=4
 set laststatus=2
 " Show the line and column number of the cursor position
 set ruler
-" Enhance command-line completion
-set wildmenu
 " Do not redraw while executing macros
 set lazyredraw
 " Number of screen lines to use for the command-line
 set cmdheight=2
 " Specify when the line with tab page labels will be displayed
 set showtabline=2
+" Wrap long lines at a character in 'breakat' rather than at the last character
+" that fits on the screen
+set linebreak
+" String to put at the start of lines that have been wrapped
+set showbreak=…
+" Enhance command-line completion
+set wildmenu
+" A file that matches with one of these patterns is ignored when expanding
+" wildcards, completing file or directory names
+set wildignore=*.swp,*.bak,*.pyc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
