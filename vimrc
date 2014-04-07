@@ -36,13 +36,13 @@ autocmd BufWritePre * :%s/\s\+$//e
 set switchbuf=usetab
 " Will change the current working directory whenever you open a file, switch
 " buffers, delete a buffer or open/close a window
-if exists("+autochdir")
-  set autochdir
-else
-  autocmd BufEnter * lcd %:p:h
-endif
+"if exists("+autochdir")
+"  set autochdir
+"else
+"  autocmd BufEnter * lcd %:p:h
+"endif
 " Strings to use in 'list' mode
-set listchars=tab:▸\ ,trail:܀,eol:¬,extends:>,precedes:<
+set listchars=tab:▸\ ,trail:~,eol:¬,extends:>,precedes:<
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sounds
@@ -105,8 +105,9 @@ if has("gui_running")
     set guifont=DejaVu\ Sans\ Mono:h15
   endif
   set linespace=6
-  colorscheme github
-  highlight Comment gui=italic
+  " colorscheme github
+  colorscheme solarized
+  set background=dark
 endif
 
 " Set line number and column 80 marker
@@ -151,3 +152,5 @@ noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
 vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
+" Exit insert mode
+imap ;; <Esc>
