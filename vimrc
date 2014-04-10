@@ -81,7 +81,7 @@ set matchtime=2
 " Colors and fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
+"syntax enable
 " GUI settings
 if has("gui_running")
   set guioptions-=m " remove menu bar
@@ -102,12 +102,9 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
   elseif has("gui_macvim")
-    set guifont=DejaVu\ Sans\ Mono:h15
+    set guifont=DejaVu\ Sans\ Mono:h14
   endif
   set linespace=6
-  " colorscheme github
-  colorscheme solarized
-  set background=dark
 endif
 
 " Set line number and column 80 marker
