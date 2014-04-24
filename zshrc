@@ -1,22 +1,23 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# The following lines were added by compinstall
 zstyle :compinstall filename '/home/kdelbrayelle/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-setopt HIST_IGNORE_DUPS
+autoload -Uz compinit && compinit
 unsetopt beep
 bindkey -e
-# End of lines configured by zsh-newuser-install
 
-# color output
+#=============================================================
+# History configuration
+#=============================================================
+export HISTSIZE=1000
+export HISTFILE=~/.zsh_history
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+
+#=============================================================
+# Color output
+#=============================================================
 case $(uname -s) in
   Linux)
     alias ls='ls --color=auto'
@@ -31,7 +32,9 @@ esac
 
 export GREP_OPTIONS='--color=auto'
 
+#=============================================================
 # git prompt status
+#=============================================================
 if [ -f /usr/share/git/git-prompt.sh ]; then
 . /usr/share/git/git-prompt.sh
 elif [ -f /opt/local/share/git-core/git-prompt.sh ]; then
@@ -53,6 +56,9 @@ prompt_custom_setup () {
 
 prompt_custom_setup
 
+#=============================================================
+# Key binding
+#=============================================================
 # Make home, insert, delete and end work on PCs basically# like in doskey. This
 # may or may not work for you... the \e is the ESC character. To set this up
 # for your favourite system, type cat > rubbish, press the keys of interest,
@@ -79,6 +85,9 @@ case $TERM in
     ;;
 esac
 
+#=============================================================
+# Source .profile
+#=============================================================
 if [ -f ~/.profile ]; then
 . ~/.profile
 fi
