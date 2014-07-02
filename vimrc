@@ -81,7 +81,7 @@ set matchtime=2
 " Colors and fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-"syntax enable
+syntax enable
 " GUI settings
 if has("gui_running")
   set guioptions-=m " remove menu bar
@@ -104,6 +104,8 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=DejaVu\ Sans\ Mono:h14
   endif
+  colorscheme papadox
+  set background=dark
   set linespace=6
 endif
 
