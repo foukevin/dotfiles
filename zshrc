@@ -1,8 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-zstyle :compinstall filename '/home/kdelbrayelle/.zshrc'
-
+#if [ -f $HOME/.zshrc ]; then
+#zstyle :compinstall filename $HOME/.zshrc
+#fi
+zstyle ":completion:*:commands" rehash 1
+autoload -U compinstall
 autoload -Uz compinit && compinit
 unsetopt beep
 bindkey -e
@@ -10,10 +13,12 @@ bindkey -e
 #=============================================================
 # History configuration
 #=============================================================
-export HISTSIZE=1000
-export HISTFILE=~/.zsh_history
-export SAVEHIST=$HISTSIZE
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=$HISTSIZE
+setopt inc_append_history
 setopt hist_ignore_all_dups
+setopt share_history
 
 #=============================================================
 # Color output
@@ -37,8 +42,8 @@ export GREP_OPTIONS='--color=auto'
 #=============================================================
 if [ -f /usr/share/git/git-prompt.sh ]; then
 . /usr/share/git/git-prompt.sh
-elif [ -f /opt/local/share/git-core/git-prompt.sh ]; then
-. /opt/local/share/git-core/git-prompt.sh
+elif [ -f /opt/local/share/git/git-prompt.sh ]; then
+. /opt/local/share/git/git-prompt.sh
 fi
 
 prompt_custom_setup () {
