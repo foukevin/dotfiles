@@ -63,6 +63,8 @@ set shiftwidth=8
 set tabstop=8
 " Working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode
 set backspace=eol,start,indent
+" Place case labels N characters from the indent of the switch()
+set cinoptions=:0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and matches
