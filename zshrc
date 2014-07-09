@@ -61,6 +61,12 @@ prompt_custom_setup () {
 
 prompt_custom_setup
 
+# git aliases
+if [ -f $HOME/.gitconfig ]; then
+  alias gl='git lg -20'
+  alias gs='git status'
+fi
+
 #=============================================================
 # Key binding
 #=============================================================
