@@ -135,11 +135,27 @@ set showtabline=2
 set linebreak
 " String to put at the start of lines that have been wrapped
 set showbreak=…
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command-line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Character to type to start wildcard expansion in the command-line,
+" as specified with 'wildmode'
+set wildchar=<Tab>
 " Enhance command-line completion
 set wildmenu
+" Completion mode that is used for the character specified with	'wildchar'
+set wildmode=full
 " A file that matches with one of these patterns is ignored when expanding
 " wildcards, completing file or directory names
 set wildignore=*.swp,*.bak,*.pyc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sessions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Changes the effect of the :mksession command
+set sessionoptions -= options,folds
+set sessionoptions += sesdir
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
