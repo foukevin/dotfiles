@@ -165,6 +165,8 @@ set sessionoptions += sesdir
 " Write and load sessions
 map <F2> :mksession! ~/vim_session <cr>
 map <F3> :source ~/vim_session <cr>
+" Grep word under cursor in current directory and subdirectories
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 " Smart Home/End
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
 noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
