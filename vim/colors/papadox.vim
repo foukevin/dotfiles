@@ -30,3 +30,4 @@ hi PMenuSel guifg=NONE guibg=RoyalBlue3 gui=NONE
 hi Identifier guifg=LightBlue3 guibg=NONE gui=NONE
 "hi Function guifg=gold guibg=NONE gui=NONE
 hi Function guifg=White guibg=NONE gui=NONE
+hi MatchParen guifg=NONE guibg=Grey30 gui=NONE
