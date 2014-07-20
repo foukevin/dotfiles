@@ -102,9 +102,9 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=DejaVu\ Sans\ Mono:h14
   endif
-  colorscheme papadox
   set background=dark
   set linespace=6
+  colorscheme papadox
 endif
 
 " Set line number and column 80 marker
@@ -116,6 +116,9 @@ set colorcolumn=80
 set scrolloff=4
 " Determine contents of the status line
 " set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
+if has("statusline")
+  set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
 " Last window status line option (0:never, 1:if two windows, 2:always)
 set laststatus=2
 " Show the line and column number of the cursor position
@@ -150,8 +153,8 @@ set wildignore=*.swp,*.bak,*.pyc
 " Sessions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Changes the effect of the :mksession command
-set sessionoptions -= options,folds
-set sessionoptions += sesdir
+set sessionoptions-=options,folds
+set sessionoptions=sesdir
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
