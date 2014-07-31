@@ -67,8 +67,11 @@ set tabstop=8
 set backspace=eol,start,indent
 " Place case labels N characters from the indent of the switch()
 set cinoptions=:0
-" Indent multiline C function parameters with opening paren
+" When in unclosed parentheses, indent N characters from the line with the
+" unclosed parentheses
 set cinoptions=(0
+" Place C++ scope declarations N characters from the indent
+set cinoptions=g0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and matches
