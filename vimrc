@@ -67,6 +67,8 @@ set tabstop=8
 set backspace=eol,start,indent
 " Place case labels N characters from the indent of the switch()
 set cinoptions=:0
+" Indent multiline C function parameters with opening paren
+set cinoptions=(0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and matches
