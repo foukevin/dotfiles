@@ -102,7 +102,7 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
   elseif has("gui_macvim")
-    set guifont=DejaVu\ Sans\ Mono:h14
+    set guifont=DejaVu\ Sans\ Mono:h16
   endif
   set background=dark
   set linespace=6
