@@ -23,7 +23,7 @@ hi TabLineSel guifg=Grey guibg=NONE gui=NONE
 hi TabLine guifg=Black guibg=Grey gui=NONE
 hi Title guifg=DarkRed guibg=NONE gui=NONE
 "hi VertSplit guifg=Grey30 guibg=Grey10 gui=NONE
-hi Visual guifg=NONE guibg=DeepPink4 gui=NONE
+hi Visual guifg=Grey70 guibg=DeepPink4 gui=NONE
 hi PMenu guifg=NONE guibg=RoyalBlue4 gui=NONE
 hi PMenuSel guifg=NONE guibg=RoyalBlue3 gui=NONE
 "hi Identifier guifg=SteelBlue3 guibg=NONE gui=NONE
