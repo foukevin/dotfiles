@@ -19,7 +19,7 @@ set history=400
 " Sets the character encoding used inside Vim
 set encoding=utf8
 " List of character encodings considered when starting to edit an existing file
-set fileencodings=big5,iso-2022-jp,euc-jp,cp932,utf8,default,latin1
+set fileencodings=utf8,big5,iso-2022-jp,euc-jp,cp932,default,latin1
 " Set the preferrred end-of-line (<EOL>) formats
 set fileformats=unix,dos,mac
 " Do not make a backup before overwriting a file
