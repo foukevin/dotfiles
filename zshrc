@@ -42,6 +42,8 @@ export GREP_OPTIONS='--color=auto'
 #=============================================================
 if [ -f /usr/share/git/git-prompt.sh ]; then
 . /usr/share/git/git-prompt.sh
+elif [ -f /usr/lib/git-core/git-sh-prompt ]; then
+. /usr/lib/git-core/git-sh-prompt
 elif [ -f /opt/local/share/git/git-prompt.sh ]; then
 . /opt/local/share/git/git-prompt.sh
 fi
