@@ -16,9 +16,17 @@ bindkey -e
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
+setopt append_history
 setopt inc_append_history
+setopt hist_ignore_space
 setopt hist_ignore_all_dups
+setopt hist_expire_dups_first
 setopt share_history
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 #=============================================================
 # Color output
@@ -72,29 +80,31 @@ fi
 #=============================================================
 # Key binding
 #=============================================================
-# Make home, insert, delete and end work on PCs basically# like in doskey. This
+# Make home, insert, delete and end work on PCs basically like in doskey. This
 # may or may not work for you... the \e is the ESC character. To set this up
-# for your favourite system, type cat > rubbish, press the keys of interest,
+# for your favourite system, type cat > /dev/null, press the keys of interest,
 # then enter here what you see. You should replace ^[ (escape) with \e.
 
 case $TERM in
     *xterm*|rxvt|(u|dt|k|E)term)
-    bindkey "\e[1~" beginning-of-line
-    bindkey "\e[3~" delete-char
-    bindkey "\e[4~" end-of-line
-    bindkey "\177" backward-delete-char
-    bindkey "\e[2~" overwrite-mode
+    bindkey '\e[1~' beginning-of-line
+    bindkey '\e[3~' delete-char
+    bindkey '\e[4~' end-of-line
+    bindkey '\177' backward-delete-char
+    bindkey '\e[2~' overwrite-mode
 
-    bindkey "\e[7~" beginning-of-line
-    bindkey "\e[H" beginning-of-line
-    bindkey "\eOH" beginning-of-line
-    #bindkey "\e[2~" transpose-words
-    bindkey "\e[8~" end-of-line
-    bindkey "\e[F" end-of-line
-    bindkey "\eOF" end-of-line
+    bindkey '\e[7~' beginning-of-line
+    bindkey '\e[H' beginning-of-line
+    bindkey '\eOH' beginning-of-line
+    #bindkey '\e[2~' transpose-words
+    bindkey '\e[8~' end-of-line
+    bindkey '\e[F' end-of-line
+    bindkey '\eOF' end-of-line
 
-    bindkey "\e[A" history-beginning-search-backward
-    bindkey "\e[B" history-beginning-search-forward
+    bindkey '\eOA' up-line-or-beginning-search
+    bindkey '\e[A' up-line-or-beginning-search
+    bindkey '\eOB' down-line-or-beginning-search
+    bindkey '\e[B' down-line-or-beginning-search
     ;;
 esac
 
