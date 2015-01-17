@@ -42,8 +42,17 @@ case $(uname -s) in
     alias ls="ls -G"
     ;;
 esac
-
-export GREP_OPTIONS='--color=auto'
+#
+#=============================================================
+# Grep output
+#=============================================================
+VCS_FOLDERS="{.bzr,.cvs,.git,.hg,.svn}"
+GREP_OPTIONS="--color=auto"
+GREP_OPTIONS+=" --exclude=tags,$VCS_FOLDERS"
+GREP_OPTIONS+=" --exclude-dir=$VCS_FOLDERS"
+alias grep="/usr/bin/grep $GREP_OPTIONS"
+unset GREP_OPTIONS
+unset VCS_FOLDER
 
 #=============================================================
 # git prompt status
