@@ -31,18 +31,21 @@ zle -N down-line-or-beginning-search
 #=============================================================
 # Color output
 #=============================================================
+LS_OPTIONS=""
 case $(uname -s) in
-  Linux)
-    alias ls='ls --color=auto'
-    ;;
-  Darwin|FreeBSD)
-    export CLICOLOR=1
-    # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-    export LSCOLORS=ExFxCxDxBxegedabagacad
-    alias ls="ls -G"
-    ;;
+	Linux)
+		LS_OPTIONS+=" --color=auto"
+		;;
+	Darwin|FreeBSD)
+		export CLICOLOR=1
+		# export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+		export LSCOLORS=ExFxCxDxBxegedabagacad
+		LS_OPTIONS+=" -G"
+		;;
 esac
-#
+alias ls="/usr/bin/ls $LS_OPTIONS"
+unset LS_OPTIONS
+
 #=============================================================
 # Grep output
 #=============================================================
