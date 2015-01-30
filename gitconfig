@@ -8,6 +8,7 @@
         local = yellow black
         remote = magenta
 [alias]
+        st = status
         co = checkout
         lgc = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
         lgd = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
@@ -16,7 +17,6 @@
         lgr7d = !"git lgr" --since=-7days
         lgr1m = !"git lgr" --since=-1months
         ll = log -1 --pretty=format:'%C(yellow)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)'
-        st = status -uno
 [push]
         default = simple
 [merge]
@@ -25,3 +25,8 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+[status]
+	relativePaths = false
+	short = true
+	branch = true
+	showUntrackedFiles = normal
