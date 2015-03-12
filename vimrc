@@ -56,20 +56,29 @@ autocmd VimEnter * set vb t_vb=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation and edit
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set expandtab
 " Copy indent from current line when starting a new line
 set autoindent
 " Do smart autoindenting when starting a new line
 set smartindent
-set shiftwidth=8
+
+" Number of spaces that a <Tab> in the file counts for
 set tabstop=8
+" Do not expand tabs to spaces
+set noexpandtab
+" Number of spaces to use for each step of (auto)indent.  Used for
+" |'cindent'|, |>>|, |<<|, etc.
+set shiftwidth=8
+" Number of spaces that a <Tab> counts for while performing editing
+" operations, like inserting a <Tab> or using <BS>
+set softtabstop=0
+
 " Working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode
 set backspace=eol,start,indent
 " Place case labels N characters from the indent of the switch()
 " When in unclosed parentheses, indent N characters from the line with the
 " unclosed parentheses
 " Place C++ scope declarations N characters from the indent
-set cinoptions=:0,(0,g0
+set cinoptions=:0,(0,g0,W1s
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and matches
@@ -111,10 +120,12 @@ if has("gui_running")
 endif
 
 " Set line number and column 80 marker
-set number
-set numberwidth=8
+" set number
+" set numberwidth=8
 set colorcolumn=80
-" set columns=88
+" A column with the specified width is shown at the side of the window which
+" indicates open and closed folds.
+set foldcolumn=4
 " Minimal number of screen lines to keep above and below the cursor
 set scrolloff=4
 " Determine contents of the status line
@@ -156,8 +167,8 @@ set wildignore=*.swp,*.bak,*.pyc
 " Sessions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Changes the effect of the :mksession command
-set sessionoptions-=options,folds
-set sessionoptions=sesdir
+set sessionoptions-=blank,curdir,options,folds
+set sessionoptions=buffers,sesdir,winpos,resize,tabpages
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
@@ -166,7 +177,7 @@ set sessionoptions=sesdir
 map <F2> :mksession! ~/vim_session <cr>
 map <F3> :source ~/vim_session <cr>
 " Grep word under cursor in current directory and subdirectories
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <F4> :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 " Smart Home/End
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
 noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
