@@ -67,6 +67,8 @@ elif [ -f /usr/lib/git-core/git-sh-prompt ]; then
 . /usr/lib/git-core/git-sh-prompt
 elif [ -f /opt/local/share/git/git-prompt.sh ]; then
 . /opt/local/share/git/git-prompt.sh
+elif [ -f /usr/local/git/contrib/completion/git-prompt.sh ]; then
+. /usr/local/git/contrib/completion/git-prompt.sh
 fi
 
 prompt_custom_setup () {
