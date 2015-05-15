@@ -32,6 +32,7 @@ zle -N down-line-or-beginning-search
 # Color output
 #=============================================================
 LS_OPTIONS=""
+unalias ls
 case $(uname -s) in
 	Linux)
 		LS_OPTIONS+=" --color=auto"
@@ -43,7 +44,7 @@ case $(uname -s) in
 		LS_OPTIONS+=" -G"
 		;;
 esac
-alias ls="/usr/bin/ls $LS_OPTIONS"
+alias ls="$(which ls) $LS_OPTIONS"
 unset LS_OPTIONS
 
 #=============================================================
