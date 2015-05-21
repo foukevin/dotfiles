@@ -116,8 +116,9 @@ if has("gui_running")
   endif
   set background=dark
   set linespace=6
-  colorscheme papadox
 endif
+
+colorscheme papadox
 
 " Set line number and column 80 marker
 " set number

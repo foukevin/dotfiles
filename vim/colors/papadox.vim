@@ -75,7 +75,7 @@ exe "hi Constant"    .s:v.'fg='.s:red
 exe "hi Error"       .s:v.'fg=fg'    .s:v.'bg='.s:red
 exe "hi Identifier"  .s:v.'fg='.s:cya                .s:v.'=NONE'
 exe "hi PreProc"     .s:v.'fg='.s:blu                .s:v.'=NONE'
-exe "hi Special"     .s:v.'fg='.s:gr1
+exe "hi Special"     .s:v.'fg='.s:whi
 exe "hi SpecialKey"  .s:v.'fg='.s:gr1
 exe "hi Statement"   .s:v.'fg='.s:whi                .s:v.'=NONE'
 exe "hi Todo"        .s:v.'fg='.s:yel .s:v.'bg=bg'   .s:v.'=italic'
