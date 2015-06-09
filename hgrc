@@ -1,8 +1,8 @@
 [ui]
 ssh = ssh -C
-username = foukevin <kevin.delbrayelle@gmail.com>
+username = Kévin Delbrayelle <kevin.delbrayelle@gmail.com>
 verbose = True
-editor= nano
+editor = vim
 
 [extensions]
 hgext.bookmarks =
