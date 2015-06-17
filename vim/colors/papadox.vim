@@ -69,6 +69,8 @@ exe "hi TabLineFill" .s:v.'fg=bg'    .s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi CursorLine"                  .s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi ColorColumn"                 .s:v.'bg='.s:gr2.s:v.'=NONE'
 
+exe "hi Cursor"      .s:v.'fg=bg' .s:v.'bg='.s:gre
+
 exe "hi MatchParen"  .s:v.'fg=bg' .s:v.'bg='.s:yel
 exe "hi Comment"     .s:v.'fg='.s:bro .s:v.'=NONE'
 exe "hi Constant"    .s:v.'fg='.s:red
