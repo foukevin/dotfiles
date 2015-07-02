@@ -108,14 +108,15 @@ if has("gui_running")
   set guioptions-=L " remove left-hand scroll bar
   set guioptions=aiA
   if has("gui_gtk2")
-     set guifont=DejaVu\ Sans\ Mono\ 13
+    set guifont=DejaVu\ Sans\ Mono\ 14
+    set linespace=8
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
+    set linespace=6
   elseif has("gui_macvim")
     set guifont=DejaVu\ Sans\ Mono:h16
+    set linespace=8
   endif
-  set background=dark
-  set linespace=6
 endif
 
 colorscheme papadox
