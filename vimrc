@@ -44,7 +44,7 @@ set switchbuf=usetab
 "  autocmd BufEnter * lcd %:p:h
 "endif
 " Strings to use in 'list' mode
-set listchars=tab:▸\ ,trail:~,eol:¬,extends:>,precedes:<
+set listchars=tab:▸\ ,trail:~,eol:¬,extends:⇢,precedes:⇠
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sounds
@@ -80,6 +80,9 @@ set backspace=eol,start,indent
 " Place C++ scope declarations N characters from the indent
 set cinoptions=:0,(0,g0,W1s
 
+" No delay when exiting edit mode
+set ttimeoutlen=0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and matches
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,13 +112,13 @@ if has("gui_running")
   set guioptions=aiA
   if has("gui_gtk2")
     set guifont=DejaVu\ Sans\ Mono\ 14
-    set linespace=8
+    set linespace=0
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
-    set linespace=6
+    set linespace=0
   elseif has("gui_macvim")
-    set guifont=DejaVu\ Sans\ Mono:h16
-    set linespace=8
+    set guifont=DejaVu\ Sans\ Mono:h18
+    set linespace=0
   endif
 endif
 
@@ -127,13 +130,14 @@ colorscheme papadox
 set colorcolumn=80
 " A column with the specified width is shown at the side of the window which
 " indicates open and closed folds.
-set foldcolumn=4
+set foldcolumn=1
 " Minimal number of screen lines to keep above and below the cursor
 set scrolloff=4
 " Determine contents of the status line
 " set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
 if has("statusline")
-  set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+  "set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+  set statusline=%<%f\ %h%m%r%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 endif
 " Last window status line option (0:never, 1:if two windows, 2:always)
 set laststatus=2
@@ -189,6 +193,7 @@ nnoremap Q <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linewrap edit
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nowrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
   if &wrap
