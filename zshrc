@@ -31,8 +31,11 @@ zle -N down-line-or-beginning-search
 #=============================================================
 # Color output
 #=============================================================
+# Redirect unalias output to /dev/null to silence any warning
+# about no existing aliases
+unalias ls >/dev/null 2>/dev/null
+
 LS_OPTIONS=""
-unalias ls
 case $(uname -s) in
 	Linux)
 		LS_OPTIONS+=" --color=auto"
