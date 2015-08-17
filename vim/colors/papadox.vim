@@ -8,6 +8,7 @@ let g:colors_name = "Papadox"
 
 if has("gui_running")
     let s:v=" gui"
+    let s:bl1="#080808"
     let s:bla="#121212"
     let s:whi="#c6c6c6"
     let s:gr1="#8a8a8a"
@@ -22,6 +23,7 @@ if has("gui_running")
 else
     set t_Co=256
     let s:v=" cterm"
+    let s:bl1="232"
     let s:bla="233"
     let s:whi="251"
     let s:gr1="245"
@@ -70,8 +72,8 @@ exe "hi LineNr"      .s:v.'fg='.s:bro.s:v.'bg='.s:gr2
 exe "hi CursorLineNr".s:v.'fg=fg'    .s:v.'bg='.s:gr2
 exe "hi Question"    .s:v.'fg=fg'                    .s:v.'=NONE'
 exe "hi StatusLine"  .s:v.'fg=fg'    .s:v.'bg='.s:gr2.s:v.'=NONE'
-exe "hi StatusLineNC".s:v.'fg='.s:gr1.s:v.'bg='.s:gr2.s:v.'=NONE'
-exe "hi VertSplit"   .s:v.'fg='.s:gr2.s:v.'bg='.s:gr2.s:v.'=NONE'
+exe "hi StatusLineNC".s:v.'fg='.s:bla.s:v.'bg='.s:gr2.s:v.'=NONE'
+exe "hi VertSplit"   .s:v.'fg='.s:gr2.s:v.'bg='.s:bla.s:v.'=NONE'
 exe "hi Title"       .s:v.'fg='.s:red                .s:v.'=NONE'
 exe "hi Visual"      .s:v.'fg=bg'    .s:v.'bg=fg'
 exe "hi WarningMsg"  .s:v.'fg=fg'                    .s:v.'=NONE'
@@ -91,7 +93,7 @@ exe "hi TabLine"     .s:v.'fg='.s:gr1.s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi TabLineSel"  .s:v.'fg='.s:whi.s:v.'bg=bg'    .s:v.'=NONE'
 exe "hi TabLineFill" .s:v.'fg=bg'    .s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi CursorLine"                  .s:v.'bg='.s:gr2.s:v.'=NONE'
-exe "hi ColorColumn"                 .s:v.'bg='.s:gr2.s:v.'=NONE'
+exe "hi ColorColumn"                 .s:v.'bg='.s:bl1.s:v.'=NONE'
 
 exe "hi Cursor"      .s:v.'fg=bg' .s:v.'bg='.s:gre
 
