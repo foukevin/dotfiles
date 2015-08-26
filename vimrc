@@ -127,7 +127,9 @@ colorscheme papadox
 " Set line number and column 80 marker
 " set number
 " set numberwidth=8
-set colorcolumn=80
+autocmd FileType cxx,cpp,hpp,cs,python setlocal colorcolumn=120 tabstop=4 shiftwidth=4
+autocmd FileType c,h setlocal colorcolumn=80
+
 " A column with the specified width is shown at the side of the window which
 " indicates open and closed folds.
 set foldcolumn=1
