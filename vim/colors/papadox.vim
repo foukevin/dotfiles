@@ -8,17 +8,17 @@ let g:colors_name = "Papadox"
 
 if has("gui_running")
     let s:v=" gui"
-    let s:bl1="#080808"
-    let s:bla="#121212"
-    let s:whi="#c6c6c6"
-    let s:gr1="#8a8a8a"
-    let s:gr2="#303030"
-    let s:red="#af5f5f"
-    let s:gre="#87af87"
-    let s:bro="#af875f"
+    let s:bl1="#000000"
+    let s:bla="#0f0f0f"
+    let s:whi="#ffffff"
+    let s:gr1="#b8b8b8"
+    let s:gr2="#383838"
+    let s:red="#ff8faf"
+    let s:gre="#87ff87"
+    let s:bro="#cfa75f"
     let s:yel="#d7af5f"
     let s:pur="#875f87"
-    let s:blu="#5f87af"
+    let s:blu="#af8fff"
     let s:cya="#87afd7"
 else
     set t_Co=256
@@ -61,7 +61,7 @@ if &term =~ '^xterm'
   " 6 -> solid vertical bar
 endif
 
-exe "hi Normal"      .s:v.'fg='.s:gr1.s:v.'bg='.s:bla
+exe "hi Normal"      .s:v.'fg='.s:gr1.s:v.'bg='.s:bl1
 
 exe "hi NonText"     .s:v.'fg='.s:gr2 .s:v.'=NONE'
 exe "hi ErrorMsg"    .s:v.'fg='.s:red.s:v.'bg=bg'
@@ -79,7 +79,7 @@ exe "hi Visual"      .s:v.'fg=bg'    .s:v.'bg=fg'
 exe "hi WarningMsg"  .s:v.'fg=fg'                    .s:v.'=NONE'
 exe "hi WildMenu"    .s:v.'fg=bg'    .s:v.'bg='.s:bro
 exe "hi Folded"      .s:v.'fg='.s:gr1.s:v.'bg='.s:gr2
-exe "hi FoldColumn"  .s:v.'fg='.s:gr1.s:v.'bg='.s:gr2
+exe "hi FoldColumn"  .s:v.'fg='.s:gr1.s:v.'bg='.s:bla
 exe "hi DiffAdd"     .s:v.'fg=bg'    .s:v.'bg='.s:gre
 exe "hi DiffChange"  .s:v.'fg=bg'    .s:v.'bg='.s:blu
 exe "hi DiffDelete"  .s:v.'fg='.s:red.s:v.'bg='.s:red.s:v.'=NONE'
@@ -93,9 +93,9 @@ exe "hi TabLine"     .s:v.'fg='.s:gr1.s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi TabLineSel"  .s:v.'fg='.s:whi.s:v.'bg=bg'    .s:v.'=NONE'
 exe "hi TabLineFill" .s:v.'fg=bg'    .s:v.'bg='.s:gr2.s:v.'=NONE'
 exe "hi CursorLine"                  .s:v.'bg='.s:gr2.s:v.'=NONE'
-exe "hi ColorColumn"                 .s:v.'bg='.s:bl1.s:v.'=NONE'
+exe "hi ColorColumn"                 .s:v.'bg='.s:bla.s:v.'=NONE'
 
-exe "hi Cursor"      .s:v.'fg=bg' .s:v.'bg='.s:gre
+exe "hi Cursor"      .s:v.'fg=bg' .s:v.'bg='.s:whi
 
 exe "hi MatchParen"  .s:v.'fg=bg' .s:v.'bg='.s:yel
 exe "hi Comment"     .s:v.'fg='.s:bro .s:v.'=NONE'
@@ -103,8 +103,8 @@ exe "hi Constant"    .s:v.'fg='.s:red
 exe "hi Error"       .s:v.'fg=fg'    .s:v.'bg='.s:red
 exe "hi Identifier"  .s:v.'fg='.s:cya                .s:v.'=NONE'
 exe "hi PreProc"     .s:v.'fg='.s:blu                .s:v.'=NONE'
-exe "hi Special"     .s:v.'fg='.s:whi
+exe "hi Special"     .s:v.'fg='.s:blu
 exe "hi SpecialKey"  .s:v.'fg='.s:gr1
-exe "hi Statement"   .s:v.'fg='.s:whi                .s:v.'=NONE'
-exe "hi Todo"        .s:v.'fg='.s:yel .s:v.'bg=bg'   .s:v.'=italic'
-exe "hi Type"        .s:v.'fg='.s:whi                .s:v.'=NONE'
+exe "hi Statement"   .s:v.'fg='.s:whi                .s:v.'=bold'
+exe "hi Todo"        .s:v.'fg=bg' .s:v.'bg='.s:yel.s:v.'=bold'
+exe "hi Type"        .s:v.'fg='.s:whi                .s:v.'=bold'
