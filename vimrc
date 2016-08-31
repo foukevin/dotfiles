@@ -115,6 +115,7 @@ if has("gui_running")
     set linespace=0
   elseif has("gui_win32")
     set guifont=DejaVu\ Sans\ Mono:h10
+    map <F11> <ESC>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
     set linespace=0
   elseif has("gui_macvim")
     set guifont=DejaVu\ Sans\ Mono:h18
