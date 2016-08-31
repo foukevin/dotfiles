@@ -128,7 +128,8 @@ colorscheme papadox
 " Set line number and column 80 marker
 " set number
 " set numberwidth=8
-autocmd FileType cxx,cpp,hpp,cs,python setlocal colorcolumn=120 tabstop=4 shiftwidth=4
+autocmd FileType cs,python setlocal colorcolumn=100 tabstop=4 shiftwidth=4
+autocmd FileType cxx,cpp,hpp setlocal colorcolumn=100
 autocmd FileType c,h setlocal colorcolumn=80
 
 " A column with the specified width is shown at the side of the window which
@@ -140,7 +141,8 @@ set scrolloff=4
 " set statusline=%F%m%r%h%w\ [%{&ff},%Y]\ [line:%3l\|col:%2v\|%p%%\|len=%L]
 if has("statusline")
   "set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
-  set statusline=%<%f\ %h%m%r%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+  set statusline=%<%f\ %h%m%r%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}[%{&ff}]%k\ %-14.(%l,%c%V%)\ %P
+  "set statusline=%t\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 endif
 " Last window status line option (0:never, 1:if two windows, 2:always)
 set laststatus=2
