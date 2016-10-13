@@ -78,7 +78,7 @@ set backspace=eol,start,indent
 " When in unclosed parentheses, indent N characters from the line with the
 " unclosed parentheses
 " Place C++ scope declarations N characters from the indent
-set cinoptions=:0,(0,g0,W1s
+set cinoptions=:0,(0,g0,t0,l1
 
 " No delay when exiting edit mode
 set ttimeoutlen=0
@@ -194,6 +194,11 @@ imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 " Prevent entering Ex mode
 nnoremap Q <nop>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tags
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-h> <C-]>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linewrap edit
