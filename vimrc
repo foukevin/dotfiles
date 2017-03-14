@@ -13,6 +13,13 @@ set shell=zsh
 " Command-lines remembered in the history table
 set history=400
 
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files, backups and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -32,7 +39,8 @@ set hidden
 " Automatically read file that have been changed outside of Vim again
 set autoread
 " Remove trailing spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 "autocmd BufEnter * :syntax sync fromstart
 " Behavior when switching between buffers
 set switchbuf=usetab
@@ -121,9 +129,8 @@ if has("gui_running")
     set guifont=DejaVu\ Sans\ Mono:h18
     set linespace=0
   endif
+  colorscheme papadox
 endif
-
-colorscheme papadox
 
 " Set line number and column 80 marker
 " set number
